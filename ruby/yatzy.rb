@@ -22,10 +22,11 @@ class Yatzy
 
   def self.yatzy(d1, d2, d3, d4, d5)
     dice = [d1, d2, d3, d4, d5]
+    score = 0
     for i in 1..6 do
-        return 50 if dice.count(i) == 5
+        score = 50 if dice.count(i) == 5
     end
-    0
+    score
   end
 
   def self.ones(d1,  d2,  d3,  d4,  d5)
@@ -58,10 +59,11 @@ class Yatzy
 
   def self.score_pair( d1,  d2,  d3,  d4,  d5)
     dice = [d1, d2, d3, d4, d5]
+    score = 0
     for i in 1..6 do
-      return 2 * i if dice.count(i) >= 2
+      score = 2 * i if dice.count(i) >= 2
     end
-    0
+    score
   end
 
   def self.two_pair( d1,  d2,  d3,  d4,  d5)
@@ -88,10 +90,11 @@ class Yatzy
 
   def self.four_of_a_kind(d1,  d2,  d3,  d4,  d5)
     dice = [d1, d2, d3, d4, d5]
+    score = 0
     for i in 1..6 do
-      return 4 * i if dice.count(i) >= 4
+      score = 4 * i if dice.count(i) >= 4
     end
-    0
+    score
   end
 
   def self.three_of_a_kind( d1,  d2,  d3,  d4,  d5)
