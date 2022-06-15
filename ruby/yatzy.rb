@@ -32,51 +32,32 @@ class Yatzy
     return 0
   end
 
-  def self.ones( d1,  d2,  d3,  d4,  d5)
+  def self.ones(d1,  d2,  d3,  d4,  d5)
     dice_scores = [d1, d2, d3, d4, d5]
     dice_scores.count(1)
     # [d1, d2, d3, d4, d5].count(1)
   end
 
-  def self.twos( d1,  d2,  d3,  d4,  d5)
+  def self.twos(d1,  d2,  d3,  d4,  d5)
     dice_scores = [d1,  d2,  d3,  d4,  d5]
     dice_scores.count(2)*2
   end
 
-  def self.threes( d1,  d2,  d3,  d4,  d5)
+  def self.threes(d1,  d2,  d3,  d4,  d5)
     dice_scores = [d1,  d2,  d3,  d4,  d5]
     dice_scores.count(3)*3
   end
 
-  def fours
-    sum = 0
-    for at in Array 0..4
-      if (@dice[at] == 4)
-        sum += 4
-      end
-    end
-    return sum
+  def self.fours(d1,  d2,  d3,  d4,  d5)
+    [d1, d2, d3, d4, d5].count(4)*4
   end
 
-  def fives()
-    s = 0
-    i = 0
-    for i in (Range.new(0, @dice.size))
-      if (@dice[i] == 5)
-        s = s + 5
-      end
-    end
-    s
+  def self.fives(d1,  d2,  d3,  d4,  d5)
+    [d1, d2, d3, d4, d5].count(5)*5
   end
 
-  def sixes
-    sum = 0
-    for at in 0..@dice.length
-      if (@dice[at] == 6)
-        sum = sum + 6
-      end
-    end
-    return sum
+  def self.sixes(d1,  d2,  d3,  d4,  d5)
+    [d1, d2, d3, d4, d5].count(6)*6
   end
 
   def self.score_pair( d1,  d2,  d3,  d4,  d5)
