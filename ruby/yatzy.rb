@@ -23,33 +23,19 @@ class Yatzy
   end
 
   def self.ones( d1,  d2,  d3,  d4,  d5)
-    dice_scores = [d1, d2, d3, d4, d5].to_a
+    dice_scores = [d1, d2, d3, d4, d5]
     dice_scores.count(1)
+    # [d1, d2, d3, d4, d5].count(1)
   end
 
   def self.twos( d1,  d2,  d3,  d4,  d5)
-    dice_scores = [d1,  d2,  d3,  d4,  d5].to_a
+    dice_scores = [d1,  d2,  d3,  d4,  d5]
     dice_scores.count(2)*2
   end
 
   def self.threes( d1,  d2,  d3,  d4,  d5)
-    s = 0
-    if (d1 == 3)
-      s += 3
-    end
-    if (d2 == 3)
-      s += 3
-    end
-    if (d3 == 3)
-      s += 3
-    end
-    if (d4 == 3)
-      s += 3
-    end
-    if (d5 == 3)
-      s += 3
-    end
-    return s
+    dice_scores = [d1,  d2,  d3,  d4,  d5]
+    dice_scores.count(3)*3
   end
 
   def initialize(d1, d2, d3, d4, _5)
