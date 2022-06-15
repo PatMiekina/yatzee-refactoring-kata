@@ -61,34 +61,15 @@ class Yatzy
   end
 
   def self.two_pair(d1,  d2,  d3,  d4,  d5)
-    counts = [0]*6
-    counts[d1-1] += 1
-    counts[d2-1] += 1
-    counts[d3-1] += 1
-    counts[d4-1] += 1
-    counts[d5-1] += 1
-    n = 0
-    score = 0
-    for i in Array 0..5
-      if (counts[6-i-1] >= 2)
-        n = n+1
-        score += (6-i)
-      end
+    dice = [d1, d2, d3, d4, d5]
+    for i in 1..6 do
+      pair1 = i if dice.count(i) >= 2
     end
-    if (n == 2)
-      return score * 2
-    else
-      return 0
+    2.times {dice.delete(pair1)}
+    for i in 1..6 do
+      pair2 = i if dice.count(i) >= 2
     end
-
-    # dice = [d1, d2, d3, d4, d5]
-    # score = 0
-    # pair1 = 0
-    # pair2 = 0
-    # for i in 1..6 do
-    #   score = 2 * i if dice.count(i) >= 2
-    # end
-    # pair1 != 0 && pair2 != 0 ? 2 * pair1 + 2 * pair2
+    pair1 != 0 && pair2 != 0 ? 2 * pair1 + 2 * pair2 : 0
   end
 
   def self.four_of_a_kind(d1,  d2,  d3,  d4,  d5)
