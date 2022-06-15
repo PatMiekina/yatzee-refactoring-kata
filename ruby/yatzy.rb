@@ -66,7 +66,7 @@ class Yatzy
     score
   end
 
-  def self.two_pair( d1,  d2,  d3,  d4,  d5)
+  def self.two_pair(d1,  d2,  d3,  d4,  d5)
     counts = [0]*6
     counts[d1-1] += 1
     counts[d2-1] += 1
@@ -86,6 +86,15 @@ class Yatzy
     else
       return 0
     end
+
+    # dice = [d1, d2, d3, d4, d5]
+    # score = 0
+    # pair1 = 0
+    # pair2 = 0
+    # for i in 1..6 do
+    #   score = 2 * i if dice.count(i) >= 2
+    # end
+    # pair1 != 0 && pair2 != 0 ? 2 * pair1 + 2 * pair2
   end
 
   def self.four_of_a_kind(d1,  d2,  d3,  d4,  d5)
@@ -113,30 +122,15 @@ class Yatzy
   end
 
   def self.smallStraight( d1,  d2,  d3,  d4,  d5)
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-    (tallies[0] == 1 and
-      tallies[1] == 1 and
-      tallies[2] == 1 and
-      tallies[3] == 1 and
-      tallies[4] == 1) ? 15 : 0
+    dice = [d1, d2, d3, d4, d5]
+    return 15 if dice.sort == (1..5).to_a
+    0
   end
 
   def self.largeStraight( d1,  d2,  d3,  d4,  d5)
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-    if (tallies[1] == 1 and tallies[2] == 1 and tallies[3] == 1 and tallies[4] == 1 and tallies[5] == 1)
-      return 20
-    end
-    return 0
+    dice = [d1, d2, d3, d4, d5]
+    return 20 if dice.sort == (2..6).to_a
+    0
   end
 
   def self.fullHouse( d1,  d2,  d3,  d4,  d5)
