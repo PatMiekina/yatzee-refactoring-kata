@@ -1,3 +1,4 @@
+# ALL METHODS TO HAVE THE SAME INPUT!
 class Yatzy
   def initialize(d1, d2, d3, d4, d5)
     @dice = [0]*5 # create an array with 5 elements
@@ -19,7 +20,8 @@ class Yatzy
     return total
   end
 
-  def self.yatzy(dice)
+  def self.yatzy(d1, d2, d3, d4, d5)
+    dice = [d1, d2, d3, d4, d5]
     for i in 1..6 do
         return 50 if dice.count(i) == 5
     end
@@ -55,19 +57,11 @@ class Yatzy
   end
 
   def self.score_pair( d1,  d2,  d3,  d4,  d5)
-    counts = [0]*6
-    counts[d1-1] += 1
-    counts[d2-1] += 1
-    counts[d3-1] += 1
-    counts[d4-1] += 1
-    counts[d5-1] += 1
-    at = 0
-    (0...6).each do |at|
-      if (counts[6-at-1] >= 2)
-        return (6-at)*2
-      end
+    dice = [d1, d2, d3, d4, d5]
+    for i in 1..6 do
+      return 2 * i if dice.count(i) >= 2
     end
-    return 0
+    0
   end
 
   def self.two_pair( d1,  d2,  d3,  d4,  d5)
@@ -93,18 +87,6 @@ class Yatzy
   end
 
   def self.four_of_a_kind(d1,  d2,  d3,  d4,  d5)
-    # tallies = [0]*6
-    # tallies[d1-1] += 1
-    # tallies[d2-1] += 1
-    # tallies[d3-1] += 1
-    # tallies[d4-1] += 1
-    # tallies[d5-1] += 1
-    # for i in (0..6)
-    #   if (tallies[i] >= 4)
-    #     return (i+1) * 4
-    #   end
-    # end
-    # return 0
     dice = [d1, d2, d3, d4, d5]
     for i in 1..6 do
       return 4 * i if dice.count(i) >= 4
