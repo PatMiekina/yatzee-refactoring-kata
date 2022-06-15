@@ -107,33 +107,27 @@ class Yatzy
   end
 
   def self.three_of_a_kind( d1,  d2,  d3,  d4,  d5)
-    t = [0]*6
-    t[d1-1] += 1
-    t[d2-1] += 1
-    t[d3-1] += 1
-    t[d4-1] += 1
-    t[d5-1] += 1
-    for i in [0,1,2,3,4,5]
-      if (t[i] >= 3)
-        return (i+1) * 3
-      end
+    dice = [d1, d2, d3, d4, d5]
+    score = 0
+    for i in 1..6 do
+      score = 3 * i if dice.count(i) >= 3
     end
-    0
+    score
   end
 
-  def self.smallStraight( d1,  d2,  d3,  d4,  d5)
+  def self.smallStraight(d1,  d2,  d3,  d4,  d5)
     dice = [d1, d2, d3, d4, d5]
     return 15 if dice.sort == (1..5).to_a
     0
   end
 
-  def self.largeStraight( d1,  d2,  d3,  d4,  d5)
+  def self.largeStraight(d1,  d2,  d3,  d4,  d5)
     dice = [d1, d2, d3, d4, d5]
     return 20 if dice.sort == (2..6).to_a
     0
   end
 
-  def self.fullHouse( d1,  d2,  d3,  d4,  d5)
+  def self.fullHouse(d1,  d2,  d3,  d4,  d5)
     tallies = []
     _2 = false
     i = 0
