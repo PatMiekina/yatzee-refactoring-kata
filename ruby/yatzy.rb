@@ -1,14 +1,5 @@
 # ALL METHODS TO HAVE THE SAME INPUT!
 class Yatzy
-  def initialize(d1, d2, d3, d4, d5)
-    @dice = [0]*5 # create an array with 5 elements
-    # reassign values of elements in the array
-    @dice[0] = d1
-    @dice[1] = d2
-    @dice[2] = d3
-    @dice[3] = d4
-    @dice[4] = d5
-  end
   
   def self.chance(d1, d2, d3, d4, d5)
     [d1, d2, d3, d4, d5].sum
@@ -23,32 +14,8 @@ class Yatzy
     score
   end
 
-  def self.ones(d1,  d2,  d3,  d4,  d5)
-    dice_scores = [d1, d2, d3, d4, d5]
-    dice_scores.count(1)
-    # [d1, d2, d3, d4, d5].count(1)
-  end
-
-  def self.twos(d1,  d2,  d3,  d4,  d5)
-    dice_scores = [d1,  d2,  d3,  d4,  d5]
-    dice_scores.count(2)*2
-  end
-
-  def self.threes(d1,  d2,  d3,  d4,  d5)
-    dice_scores = [d1,  d2,  d3,  d4,  d5]
-    dice_scores.count(3)*3
-  end
-
-  def self.fours(d1,  d2,  d3,  d4,  d5)
-    [d1, d2, d3, d4, d5].count(4)*4
-  end
-
-  def self.fives(d1,  d2,  d3,  d4,  d5)
-    [d1, d2, d3, d4, d5].count(5)*5
-  end
-
-  def self.sixes(d1,  d2,  d3,  d4,  d5)
-    [d1, d2, d3, d4, d5].count(6)*6
+  def self.score_single_dice(dice_set, dice)
+    dice_set.count(dice) * dice
   end
 
   def self.score_pair( d1,  d2,  d3,  d4,  d5)
@@ -58,18 +25,6 @@ class Yatzy
       score = 2 * i if dice.count(i) >= 2
     end
     score
-  end
-
-  def self.two_pair(d1,  d2,  d3,  d4,  d5)
-    dice = [d1, d2, d3, d4, d5]
-    for i in 1..6 do
-      pair1 = i if dice.count(i) >= 2
-    end
-    2.times {dice.delete(pair1)}
-    for i in 1..6 do
-      pair2 = i if dice.count(i) >= 2
-    end
-    pair1 != 0 && pair2 != 0 ? 2 * pair1 + 2 * pair2 : 0
   end
 
   def self.four_of_a_kind(d1,  d2,  d3,  d4,  d5)
@@ -88,6 +43,18 @@ class Yatzy
       score = 3 * i if dice.count(i) >= 3
     end
     score
+  end
+
+  def self.two_pair(d1,  d2,  d3,  d4,  d5)
+    dice = [d1, d2, d3, d4, d5]
+    for i in 1..6 do
+      pair1 = i if dice.count(i) >= 2
+    end
+    2.times {dice.delete(pair1)}
+    for i in 1..6 do
+      pair2 = i if dice.count(i) >= 2
+    end
+    pair1 != 0 && pair2 != 0 ? 2 * pair1 + 2 * pair2 : 0
   end
 
   def self.smallStraight(d1,  d2,  d3,  d4,  d5)
