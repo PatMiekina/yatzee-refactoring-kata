@@ -1,4 +1,14 @@
 class Yatzy
+  def initialize(d1, d2, d3, d4, d5)
+    @dice = [0]*5 # create an array with 5 elements
+    # reassign values of elements in the array
+    @dice[0] = d1
+    @dice[1] = d2
+    @dice[2] = d3
+    @dice[3] = d4
+    @dice[4] = d5
+  end
+  
   def self.chance(d1, d2, d3, d4, d5)
     total = 0
     total += d1
@@ -36,15 +46,6 @@ class Yatzy
   def self.threes( d1,  d2,  d3,  d4,  d5)
     dice_scores = [d1,  d2,  d3,  d4,  d5]
     dice_scores.count(3)*3
-  end
-
-  def initialize(d1, d2, d3, d4, _5)
-    @dice = [0]*5
-    @dice[0] = d1
-    @dice[1] = d2
-    @dice[2] = d3
-    @dice[3] = d4
-    @dice[4] = _5
   end
 
   def fours
