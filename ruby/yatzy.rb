@@ -14,11 +14,11 @@ class Yatzy
     score
   end
 
-  def self.score_single_dice(dice_set, dice)
+  def self.single_dice(dice_set, dice)
     dice_set.count(dice) * dice
   end
 
-  def self.score_pair( d1,  d2,  d3,  d4,  d5)
+  def self.pair( d1,  d2,  d3,  d4,  d5)
     dice = [d1, d2, d3, d4, d5]
     score = 0
     for i in 1..6 do
@@ -45,7 +45,7 @@ class Yatzy
     score
   end
 
-  def self.two_pair(d1,  d2,  d3,  d4,  d5)
+  def self.two_pairs(d1,  d2,  d3,  d4,  d5)
     dice = [d1, d2, d3, d4, d5]
     for i in 1..6 do
       pair1 = i if dice.count(i) >= 2

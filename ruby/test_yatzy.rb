@@ -19,23 +19,23 @@ class YatzyTest < Test::Unit::TestCase
   end
  
   def test_single_dice
-    assert Yatzy.score_single_dice([1,2,3,4,5],1) == 1
-    assert 2 == Yatzy.score_single_dice([1,2,1,4,5],1)
-    assert 0 == Yatzy.score_single_dice([6,2,2,4,5],1)
-    assert 4 == Yatzy.score_single_dice([1,2,1,1,1],1)
-    assert Yatzy.score_single_dice([1,2,3,2,6], 2) == 4
-    assert Yatzy.score_single_dice([2,2,2,2,2], 2) == 10
+    assert Yatzy.single_dice([1,2,3,4,5],1) == 1
+    assert 2 == Yatzy.single_dice([1,2,1,4,5],1)
+    assert 0 == Yatzy.single_dice([6,2,2,4,5],1)
+    assert 4 == Yatzy.single_dice([1,2,1,1,1],1)
+    assert Yatzy.single_dice([1,2,3,2,6], 2) == 4
+    assert Yatzy.single_dice([2,2,2,2,2], 2) == 10
   end
 
   def test_one_pair
-    assert 6 == Yatzy.score_pair(3,4,3,5,6)
-    assert 10 == Yatzy.score_pair(5,3,3,3,5)
-    assert 12 == Yatzy.score_pair(5,3,6,6,5)
+    assert 6 == Yatzy.pair(3,4,3,5,6)
+    assert 10 == Yatzy.pair(5,3,3,3,5)
+    assert 12 == Yatzy.pair(5,3,6,6,5)
   end
 
   def test_two_pairs
-    assert_equal 16, Yatzy.two_pair(3,3,5,4,5)
-    assert_equal 16, Yatzy.two_pair(3,3,5,5,5)
+    assert_equal 16, Yatzy.two_pairs(3,3,5,4,5)
+    assert_equal 16, Yatzy.two_pairs(3,3,5,5,5)
   end
 
   def test_three_of_a_kind
