@@ -62,8 +62,6 @@ class Yatzy
   end
 
   def self.full_house(*dice)
-    three = 0
-    pair = 0
     for i in 1..6 do
     three = i if dice.count(i) >= 3
     end
