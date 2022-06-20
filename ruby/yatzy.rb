@@ -57,19 +57,19 @@ class Yatzy
     pair1 != 0 && pair2 != 0 ? 2 * pair1 + 2 * pair2 : 0
   end
 
-  def self.smallStraight(d1,  d2,  d3,  d4,  d5)
+  def self.small_straight(d1,  d2,  d3,  d4,  d5)
     dice = [d1, d2, d3, d4, d5]
     return 15 if dice.sort == (1..5).to_a
     0
   end
 
-  def self.largeStraight(d1,  d2,  d3,  d4,  d5)
+  def self.large_straight(d1,  d2,  d3,  d4,  d5)
     dice = [d1, d2, d3, d4, d5]
     return 20 if dice.sort == (2..6).to_a
     0
   end
 
-  def self.fullHouse(d1,  d2,  d3,  d4,  d5)
+  def self.full_house(d1,  d2,  d3,  d4,  d5)
     dice = [d1, d2, d3, d4, d5]
     three = 0
     pair = 0
