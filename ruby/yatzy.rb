@@ -13,7 +13,7 @@ class Yatzy
     score
   end
 
-  def self.single_dice(dice_set, dice)
+  def self.single_dice(*dice_set, dice)
     dice_set.count(dice) * dice
   end
 
