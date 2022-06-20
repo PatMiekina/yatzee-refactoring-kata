@@ -52,13 +52,12 @@ class Yatzy
     pair1 != 0 && pair2 != 0 ? 2 * pair1 + 2 * pair2 : 0
   end
 
-  def self.small_straight(*dice)
-    return 15 if dice.sort == (1..5).to_a
-    0
-  end
-
-  def self.large_straight(*dice)
-    return 20 if dice.sort == (2..6).to_a
+  def self.straight(*dice, size)
+    if size == "S"
+      return 15 if dice.sort == (1..5).to_a
+    elsif size == "L"
+      return 20 if dice.sort == (2..6).to_a
+    end
     0
   end
 
