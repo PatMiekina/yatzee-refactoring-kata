@@ -4,27 +4,23 @@ require 'test/unit'
 # ALL METHODS TO HAVE THE SAME INPUT!
 class YatzyTest < Test::Unit::TestCase
   def test_chance
-    expected = 15
-    actual = Yatzy.chance(2,3,4,5,1)
-    assert expected == actual
+    assert 15 == Yatzy.chance(2,3,4,5,1)
     assert 16 == Yatzy.chance(3,3,4,5,1)
   end
 
   def test_yatzy 
-    expected = 50
-    actual = Yatzy.yatzy(4,4,4,4,4)
-    assert expected == actual
+    assert 50 == Yatzy.yatzy(4,4,4,4,4)
     assert 50 == Yatzy.yatzy(6,6,6,6,6)
     assert 0 == Yatzy.yatzy(6,6,6,6,3)
   end
  
   def test_single_dice
-    assert Yatzy.single_dice(1,2,3,4,5, 1) == 1
+    assert 1 ==Yatzy.single_dice(1,2,3,4,5, 1)
     assert 2 == Yatzy.single_dice(1,2,1,4,5, 1)
     assert 0 == Yatzy.single_dice(6,2,2,4,5, 1)
     assert 4 == Yatzy.single_dice(1,2,1,1,1, 1)
-    assert Yatzy.single_dice(1,2,3,2,6, 2) == 4
-    assert Yatzy.single_dice(2,2,2,2,2, 2) == 10
+    assert 4 == Yatzy.single_dice(1,2,3,2,6, 2)
+    assert 10 == Yatzy.single_dice(2,2,2,2,2, 2)
   end
 
   def test_one_pair
@@ -34,8 +30,8 @@ class YatzyTest < Test::Unit::TestCase
   end
 
   def test_two_pairs
-    assert_equal 16, Yatzy.two_pairs(3,3,5,4,5)
-    assert_equal 16, Yatzy.two_pairs(3,3,5,5,5)
+    assert 16 == Yatzy.two_pairs(3,3,5,4,5)
+    assert 16 == Yatzy.two_pairs(3,3,5,5,5)
   end
 
   def test_three_of_a_kind
